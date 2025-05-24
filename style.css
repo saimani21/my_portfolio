@@ -118,13 +118,26 @@ section  { margin-bottom: 2rem; padding: 2rem; border-radius: 12px; }
   color:lime;
 }
 #vanta-bg {
-  position: fixed;  /* or absolute, depending on your layout */
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;     /* full viewport width */
-  height: 100vh;    /* full viewport height */
-  z-index: -1;      /* behind other content */
+  width: 100%;
+  height: 100%;
+  z-index: -2; /* pushed to back */
 }
+
+#vanta-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* just above vanta-bg */
+  pointer-events: none;
+  transition: background-color 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
 /* ───────────── CLEAN FULLPAGE SECTION STYLE ───────────── */
 section {
   min-height: 100vh;
