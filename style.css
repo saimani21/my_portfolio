@@ -1,0 +1,119 @@
+/* ─────────────────────── THEME VARIABLES ─────────────────────────────── */
+:root {
+  --bg:         #ffffff;
+  --text:       #000000;
+  --card-bg:    rgba(0, 0, 0, 0.06);
+  --accent:     #0000ff;
+}
+[data-theme="dark"] {
+  --bg:         #000000;
+  --text:       #ffffff;
+  --card-bg:    rgba(255, 255, 255, 0.05);
+  --accent:     #00ffff;
+}
+
+/* ─────────────────────── BASE RESET / LAYOUT ─────────────────────────── */
+* { box-sizing: border-box; }
+html,body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+#vanta-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+}
+
+/* ────────────────────────── CUSTOM CURSOR ────────────────────────────── */
+.custom-cursor {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+  z-index: 1000;
+  transition: transform 0.08s ease;
+}
+
+/* ────────────────────────── NAVIGATION BAR ───────────────────────────── */
+.navbar {
+  position: sticky; top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.6);
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1.5rem;
+  z-index: 99;
+}
+.navbar nav a {
+  margin: 0 0.7rem;
+  font-weight: 600;
+}
+#theme-toggle {
+  background: none; border: none;
+  font-size: 1.4rem; cursor: pointer;
+  color: var(--accent);
+}
+
+/* ─────────────────────────── MAIN SECTIONS ───────────────────────────── */
+main { max-width: 1000px; margin: auto; padding: 2rem; }
+section  { margin-bottom: 2rem; padding: 2rem; border-radius: 12px; }
+.glass   { background: var(--card-bg); backdrop-filter: blur(10px); }
+.neon-box{ border: 2px solid var(--accent); box-shadow: 0 0 15px var(--accent); background: var(--card-bg); }
+.glow    { box-shadow: 0 0 20px var(--accent); background: var(--card-bg); }
+
+/* Project cards */
+.cards { display:flex; flex-wrap:wrap; gap:1rem; }
+.card  {
+  background: var(--card-bg);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  width: 280px; padding: 1rem;
+  box-shadow: 0 0 10px var(--accent);
+  transition: transform .3s, box-shadow .3s;
+}
+.card:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--accent); }
+
+/* Floating list / text */
+.float-list ul li, .floating {
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-10px); }
+}
+
+/* Fade-in utility */
+.fade-in { opacity: 0; animation: fade 1s forwards; }
+@keyframes fade { to { opacity: 1; } }
+.delay-1{animation-delay:.4s}.delay-2{animation-delay:.8s}
+.delay-3{animation-delay:1.2s}.delay-4{animation-delay:1.6s}
+.delay-5{animation-delay:2s}.delay-6{animation-delay:2.4s}
+
+/* ──────────────────────────── FOOTER ────────────────────────────────── */
+.footer {
+  text-align:center;
+  padding:1.5rem;
+  background: rgba(0,0,0,0.8);
+  color:#fff;
+}
+.footer-icons a{
+  margin:0 .6rem;
+  font-size:1.5rem;
+  color:var(--accent);
+  transition: transform .2s;
+}
+.footer-icons a:hover{
+  transform:scale(1.25);
+  color:lime;
+}
