@@ -117,3 +117,26 @@ section  { margin-bottom: 2rem; padding: 2rem; border-radius: 12px; }
   transform:scale(1.25);
   color:lime;
 }
+#vanta-bg {
+  position: fixed;  /* or absolute, depending on your layout */
+  top: 0;
+  left: 0;
+  width: 100vw;     /* full viewport width */
+  height: 100vh;    /* full viewport height */
+  z-index: -1;      /* behind other content */
+}
+/* ───────────── FULLPAGE SECTION STYLE ───────────── */
+section {
+  min-height: 100vh;       /* Full screen height */
+  display: flex;
+  align-items: center;     /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Enable snap scrolling on main container */
+body {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
