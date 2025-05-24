@@ -125,18 +125,42 @@ section  { margin-bottom: 2rem; padding: 2rem; border-radius: 12px; }
   height: 100vh;    /* full viewport height */
   z-index: -1;      /* behind other content */
 }
-/* ───────────── FULLPAGE SECTION STYLE ───────────── */
+/* ───────────── CLEAN FULLPAGE SECTION STYLE ───────────── */
 section {
-  min-height: 100vh;       /* Full screen height */
+  min-height: 100vh;
+  padding: 4rem 2rem;
   display: flex;
-  align-items: center;     /* Vertically center content */
-  justify-content: center; /* Horizontally center content */
+  flex-direction: column;         /* Stack content vertically */
+  justify-content: center;
+  align-items: center;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+  text-align: center;
+  gap: 1.5rem;                    /* Space between elements */
 }
 
-/* Enable snap scrolling on main container */
-body {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
+section h1, section h2, section p {
+  margin: 0;
+  line-height: 1.5;
+  max-width: 800px;
+}
+
+section h1 {
+  font-size: 3rem;
+}
+
+section h2 {
+  font-size: 2.2rem;
+}
+
+section p {
+  font-size: 1.1rem;
+  color: var(--text);
+}
+.cards {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
 }
